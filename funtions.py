@@ -35,21 +35,24 @@ def proportionsGraph (graph):
     proportion = round(proportion,5)
     proportion_List.append(proportion)
   return proportion_List
-
+#recibe dos listas de coordenadas
 def compareGraph (graph_1,graph_2):
   slopes_1 = slopesGraph(graph_1)
   slopes_2 = slopesGraph(graph_2)
   proportion_1 =proportionsGraph(graph_1)
   proportion_2 = proportionsGraph(graph_2)
-  if (slopes_1 != slopes_2):
-    return False
-  if (proportion_1 != proportion_2):
-    return False
-  return True
+  if (graph_1==graph_2):
+    return "equal"
+  if (slopes_1 == slopes_2 and proportion_1 == proportion_2):
+    return "similar"
+  return "different"
 
-def tableGraphs (graphs):
-  for i in range(len(graphs)-1):
-    j = next(i)
-    if (compareGraph(i,j)):
-      return False
-  return True
+def classify_graphs(graphs):
+    results = {'equal': [], 'similar': [], 'different': []}
+    # Utilizando un diccionario para almacenar las funciones
+    functions = {}
+    for id, graph in graphs.items():
+        comparison = compareGraph(graph, functions.setdefault(id, graph))
+        results[comparison].append(id)
+    return results
+

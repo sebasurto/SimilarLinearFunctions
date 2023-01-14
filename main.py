@@ -1,4 +1,5 @@
 import funtions as ft
+
 a = [0,0]
 b = [3,2]
 c = [4,4]
@@ -10,6 +11,7 @@ x =[a,b,c]
 y =[a,b,c]
 z =[a,c,d]
 graphs = [x,y,z]
+my_dict = {100:x, 101:y,102:z}
 print (x,y)
 print (ft.compareGraph(x,y))
 lista_slope = ft.slopesGraph(x)
@@ -18,3 +20,5 @@ lista_dist2 = ft.distancesGraph(y)
 lista_propor = ft.proportionsGraph(x)
 print (lista_slope,lista_dist, lista_dist2, lista_propor)
 print (graphs)
+dicts=ft.classify_graphs(my_dict)
+print (dicts)
