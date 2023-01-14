@@ -46,3 +46,10 @@ def compareGraph (graph_1,graph_2):
   if (proportion_1 != proportion_2):
     return False
   return True
+
+def tableGraphs (graphs):
+  for i in range(len(graphs)-1):
+    j = next(i)
+    if (compareGraph(i,j)):
+      return False
+  return True
